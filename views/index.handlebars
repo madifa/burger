@@ -1,0 +1,35 @@
+<h1>Burgers!</h1>
+
+<h2>Build your Burger!!</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#unless this.devoured}}
+<button type="Submit" class="gogo" data-id"{{id}}" data-gogo="{{devoured}}">{{this.burger_name}}</button>
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>Burgers Eaten!</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#if this.devoured}}
+    <div>{{this.burger_name}}</div>
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Add burger</h2>
+<form class="create-form" action="/burgers" method="POST">
+
+  <div class="form-group">
+    <label for="ca">Burger Name:</label>
+    <input type="text" id="ca" name="burger_name">
+  </div>
+
+
+
+  <button type="submit">Add burger</button>
+
+</form>

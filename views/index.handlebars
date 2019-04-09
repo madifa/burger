@@ -1,11 +1,19 @@
+
+<link href="https://fonts.googleapis.com/css?family=Marcellus+SC" rel="stylesheet">
+
+
 <h1>Burgers!</h1>
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3SuZY1TQVbF_PXhA0pHWg64likzt4lvxSUS1wKBlShU0NjhovOw">
 
 <h2>Build your Burger!!</h2>
 
 <ul>
   {{#each burgers}}
     {{#unless this.devoured}}
-<button type="Submit" class="gogo" data-id"{{id}}" data-gogo="{{devoured}}">{{this.burger_name}}</button>
+    <form action="burgers/{{this.id}}" method="PUT">
+<button type="Submit" class="changed" data-id="{{id}}" data-changed="{{devoured}}">{{this.burger_name}}</button>
+</form>
     {{/unless}}
   {{/each}}
 </ul>
@@ -21,7 +29,7 @@
 </ul>
 
 <h2>Add burger</h2>
-<form class="create-form" action="/burgers" method="POST">
+<form class="create-form" action="/api/burgers" method="POST">
 
   <div class="form-group">
     <label for="ca">Burger Name:</label>
